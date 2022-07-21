@@ -1,0 +1,2 @@
+-r requirements.txt #1º que me lea este archivo y luego las líneas que hay debajo
+autopep8==1.6.0 #se tiene que escribir exactamente asi: nombre paquete == nombre versión
