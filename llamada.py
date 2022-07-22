@@ -16,7 +16,7 @@ if codigo ==200:    #8º. si el codigo a ido bien imprimo este resultado
     print ('las monedas disponibles son:')
     respuesta_json = respuesta.json ()  #recibo json interpretable en python para convertir objeto en dicc. y poder acceder a propiedades de la moneda
     for moneda in respuesta_json:   #para cada moneda en respuesta_json puedo acceder a pedir info. de web CoinAPI.io
-        if moneda ['asset_id'].startswith('EUR'):
+        if moneda ['asset_id'].startswith('EUR'):   #busco monedas que empiecen por cierto id
             print (moneda['asset_id'], moneda ['name'])
 
 else:   #9º. si el codigo no ha ido bien imprimo este otro resultado 
