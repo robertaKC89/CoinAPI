@@ -13,13 +13,13 @@ class CriptoModel:  # quiero hacer un modelo que mantenga los datos y haga las l
     - consultar cambio (método)
     """
 
-    def __init__(self, origen, destino):    #manera en que le llegan los datos al modelo de parte del controlador
+    def __init__(self):    #manera en que le llegan los datos al modelo de parte del controlador
         """
         Construye un objeto con las monedas origen y destino
         y el cambio obtenido desde CoinAPI inicializado a cero.
         """
-        self.moneda_origen = origen #ya no es variable local sino atributo de la class
-        self.moneda_destino = destino  # ya no es variable local sino atributo de la class
+        self.moneda_origen = '' #ya no es variable local sino atributo de la class
+        self.moneda_destino = ''  # ya no es variable local sino atributo de la class
         self.cambio = 0.0
 
     def consultar_cambio(self): # creo este método y me traigo cosas de exchange!

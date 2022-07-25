@@ -1,12 +1,11 @@
 """
-
  Modelo <=> Controlador <=> Vista
 
  Modelo </////> Vista   (NUNCA hay comunicación entre el modelo y la vista directamente)
 
 """
 
-class CriptoView:   #vista hace 2 cosas: pide cambio monedas y muestra resultados (no almacena datos)
+class CriptoView:   #vista hace 2 cosas: pide cambio monedas y muestra resultados (no almacena datos, interactúa con user)
 
     def pedir_monedas(self):  # me he traído los inputs/entrada usuario
         origen = input("¿Qué moneda quieres cambiar? ") 
@@ -15,3 +14,7 @@ class CriptoView:   #vista hace 2 cosas: pide cambio monedas y muestra resultado
 
     def mostrar_cambio(self, origen, destino, cambio):  #me he traído el print/salida usuario
         print("Un {} vale como {:,.2f} {}".format(origen, cambio, destino,))
+
+    def quieres_seguir(self):
+        seguir = input("¿Quieres cambiar algo más? (s/n) ")
+        return seguir.upper()
