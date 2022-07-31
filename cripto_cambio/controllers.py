@@ -1,5 +1,5 @@
 from tkinter import Tk
-from models import CriptoModel
+from .models import CriptoModel
 from views import CriptoView, CriptoViewTk
 
 class CriptoController: #controlador controla el flujo del programa y dice lo que hace usuario
@@ -24,9 +24,9 @@ class CriptoController: #controlador controla el flujo del programa y dice lo qu
                 seguir = self.vista.quieres_seguir()
 
 class CriptoControllerTk(Tk):   #Tk es la raíz, debe pintarse aquí! Controla que la app arranque, tenga en mainloop y se cierre!
-    def __init__(self):
-        super().__init__()
-        self.vista = CriptoViewTk(self, self.calcular_cambio)
+    def __init__(self): 
+        super().__init__()  # llamo al padre
+        self.vista = CriptoViewTk(self, self.calcular_cambio)   # me paso yo mismo Tk mi método calcular_cambio como parámetro
         self.modelo = CriptoModel()
 
     def run(self):  # función bucle principal para llamar al mainloop
