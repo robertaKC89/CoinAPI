@@ -39,8 +39,10 @@ class CriptoControllerTk(Tk):   #Tk es la raíz, debe pintarse aquí! Controla q
         pide el cambio al modelo
         le pasa el resultado del cambio a la vista
         """
-        self.modelo.moneda_origen = self.vista.moneda_origen()
+        #al controlador le paso moneda origen y destino accediendo desde vista
+        self.modelo.moneda_origen = self.vista.moneda_origen() 
         self.modelo.moneda_destino = self.vista.moneda_destino()
         self.modelo.consultar_cambio()
-
-        self.vista.mostrar_cambio(self.modelo.cambio)
+        
+        #llamo a método mostrar_cambio, le paso el resultado y lo defino en vista
+        self.vista.mostrar_cambio(self.modelo.cambio)   

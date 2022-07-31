@@ -22,8 +22,9 @@ class CriptoView:   #vista hace 2 cosas: pide cambio monedas y muestra resultado
         return seguir.upper()
 
 class CriptoViewTk(ttk.Frame):  #genero mi vista como un Frame para aprovechar todo lo que tenga el Frame
-    def __init__ (self, padre):
+    def __init__ (self, padre, accion): # también recibo accion que debe lanzar como método y guardo en variable
         super().__init__(padre, width=400, height=400, padding=20)  #llamo al padre donde me voy a pintar como Frame
+        self.lo_que_hace_el_boton = accion
         self.grid ()    #llamo al frame y le digo que es de tipo grid
         self.crear_controles()
 
@@ -62,10 +63,8 @@ class CriptoViewTk(ttk.Frame):  #genero mi vista como un Frame para aprovechar t
         return self.origen.get()[:3]    # aqui solo quiero que me coja 3 primeros caracteres
     def moneda_destino(self):
         return self.destino.get()[:3]
-
-    def lo_que_hace_el_boton(self): # no lo ejecuto, paso la función al botón para cuando se ejecute
-        #llamo a los métodos anteriores que ya llevan el .get para pasar al modelo a través del controlador
-        print("La moneda origen es", self.moneda_origen())  
-        print("La moneda destino es", self.moneda_destino())
-
+    
+    def mostrar_cambio (self, resultado):
+        valor = "El valor actual es {:,.2f}".format(resultado)  #creo cadena format para pasar valor a resultado
+        self.etiqueta_resultado.config(text=valor)
 
