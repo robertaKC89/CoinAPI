@@ -26,7 +26,8 @@ class CriptoController: #controlador controla el flujo del programa y dice lo qu
 class CriptoControllerTk(Tk):   #Tk es la raíz, debe pintarse aquí! Controla que la app arranque, tenga en mainloop y se cierre!
     def __init__(self): 
         super().__init__()  # llamo al padre
-        self.vista = CriptoViewTk(self, self.calcular_cambio)   # me paso yo mismo Tk mi método calcular_cambio como parámetro
+        #hacemos un callback, metiendo una funcion como parámetro para recibir de Views y sin llamarla
+        self.vista = CriptoViewTk(self, self.calcular_cambio)  
         self.modelo = CriptoModel()
 
     def run(self):  # función bucle principal para llamar al mainloop
@@ -43,6 +44,6 @@ class CriptoControllerTk(Tk):   #Tk es la raíz, debe pintarse aquí! Controla q
         self.modelo.moneda_origen = self.vista.moneda_origen() 
         self.modelo.moneda_destino = self.vista.moneda_destino()
         self.modelo.consultar_cambio()
-        
+
         #llamo a método mostrar_cambio, le paso el resultado y lo defino en vista
         self.vista.mostrar_cambio(self.modelo.cambio)   
